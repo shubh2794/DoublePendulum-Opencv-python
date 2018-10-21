@@ -56,7 +56,7 @@ def fram(a1,a2,a1_v,a2_v):
 
 
 
-for i in range(1000):
+while True:
 
 	num1 = -g * (2 * m1 + m2) * math.sin(a1)
 	num2 = -m2 * g * math.sin(a1 - 2 * a2)
@@ -79,7 +79,9 @@ for i in range(1000):
 	a2 += a2_v
 
 	fram(a1,a2,a1_v,a2_v)
-	cv2.waitKey(0)
+	
+	if cv2.waitKey(1) & 0xFF == ord('q'):
+		break
 
 # out.release()
 cv2.destroyAllWindows()
